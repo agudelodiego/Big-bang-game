@@ -64,7 +64,7 @@ class Big_Bang_Theory_game:
         if user_input == "r":
             self.estado = "inicial"
             self.marcador = [0,0]
-            self.ronda = 1
+            self.ronda = 0
             print(f'''
                 ******************************************************************************************************************
                     
@@ -151,22 +151,23 @@ class Big_Bang_Theory_game:
 
 
 
-#****************Intanciamos la clase****************
-game = Big_Bang_Theory_game()
+if __name__ == '__main__':
+    #****************Intanciamos la clase****************
+    game = Big_Bang_Theory_game()
 
-# Maquina de estados finitos
-while True:
+    # Maquina de estados finitos
+    while True:
 
-    # Si la maquina se encuentra en estado inicial se ejecuta el metodo encargado de saludar al usuario y pedirle el la opcion
-    if game.estado == "inicial":
-        opcion_usuario = game.inicial()
+        # Si la maquina se encuentra en estado inicial se ejecuta el metodo encargado de saludar al usuario y pedirle el la opcion
+        if game.estado == "inicial":
+            opcion_usuario = game.inicial()
 
-        if opcion_usuario == "s":
-            print(f'''
-                Ahhh yo queria jugar                
-            ''')
-            break
+            if opcion_usuario == "s":
+                print(f'''
+                    Ahhh yo queria jugar                
+                ''')
+                break
 
-    # Si el valor ingresado por el usuario es valido, la maquina pasa al estado jugando
-    if game.estado == "jugando":
-        game.jugando(opcion_usuario)
+        # Si el valor ingresado por el usuario es valido, la maquina pasa al estado jugando
+        if game.estado == "jugando":
+            game.jugando(opcion_usuario)
